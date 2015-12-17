@@ -8,7 +8,8 @@ var ChequeSchema = new Schema({
 		payee: {type: String},
 		amount: {type: Number, default: 0},
 		amountInWords: {type: String},
-		createdOn: {type:Date, default: Date.now}
+		createdOn: {type:Date, default: Date.now},
+		modifiedOn: {type:Date, default: Date.now}
 });
 
 module.exports = mongoose.model('Cheque', ChequeSchema);

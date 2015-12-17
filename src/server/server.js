@@ -1,4 +1,6 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
 var moment = require('moment');
 var app = express();
 
@@ -7,6 +9,15 @@ var app = express();
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'Development';
 
 var config = require('./config/config')[env];
+
+// Logging request details
+app.use(morgan('dev'));
+
+// Express Middleware
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+
 
 // Database Configurations
 require('./config/database')(config);
