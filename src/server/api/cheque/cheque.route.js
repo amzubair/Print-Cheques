@@ -7,8 +7,13 @@ var router = function () {
 	var chequeRouter = express.Router();
 
 	chequeRouter.route('/')
-		.get(chequeController.getCheques);
-		
+		.get(chequeController.getCheques)
+		.post(chequeController.createCheque);
+
+	chequeRouter.route('/:id')
+		.get(chequeController.getChequeById)
+		.delete(chequeController.removeCheque);
+
 	return chequeRouter;
 
 };
