@@ -1,0 +1,23 @@
+{
+  "name": "print-cheques",
+  "description": "Application to print cheques",
+  "main": "./src/server/server.js",
+  "authors": [
+    "Mohammed Zubair"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Cheques",
+    "Print"
+  ],
+  "homepage": "https://github.com/amzubair/Print-Cheques",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
