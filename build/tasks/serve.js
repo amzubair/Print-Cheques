@@ -13,7 +13,7 @@ gulp.task('serve', function(){
 function serve(isDev) {
     
     var nodeOptions = {
-        script: config.nodeServer,
+        script: config.paths.nodeServer,
         ext: 'js',
         env: {
             'PORT': port,
