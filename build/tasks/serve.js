@@ -6,14 +6,14 @@ var config = require('../gulp-config');
 var port = process.env.PORT || config.defaultPort;
 
 
-gulp.task('serve', function(){
+gulp.task('serve', ['load-models'], function(){
     serve(true);
 })
 
 function serve(isDev) {
     
     var nodeOptions = {
-        script: config.nodeServer,
+        script: config.paths.nodeServer,
         ext: 'js',
         env: {
             'PORT': port,

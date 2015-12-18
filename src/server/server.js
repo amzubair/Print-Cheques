@@ -10,6 +10,9 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'Development';
 
 var config = require('./config/config')[env];
 
+// Initialize Models
+require('./api/models');
+
 // Logging request details
 app.use(morgan('dev'));
 

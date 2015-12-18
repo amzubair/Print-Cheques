@@ -30,7 +30,9 @@
     "pretty-ms": "^2.1.0"
   },
   "devDependencies": {
+    "chalk": "^1.1.1",
     "gulp": "^3.9.0",
+    "gulp-inject": "^3.0.0",
     "gulp-nodemon": "^2.0.4",
     "require-dir": "^0.3.0"
   }
