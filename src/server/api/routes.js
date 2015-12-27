@@ -9,7 +9,7 @@ module.exports = function (app, config) {
 
 	// Application Routes
 	app.get('/', function (req, res) {
-		res.send('This is from the router');
+		res.send('This 1111 test help router');
 	});
 
 	app.get('*', function (req, res) {

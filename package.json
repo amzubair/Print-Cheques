@@ -30,8 +30,10 @@
     "pretty-ms": "^2.1.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.10.1",
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.4",
+    "gulp-sass": "^2.1.1",
     "require-dir": "^0.3.0"
   }
 }

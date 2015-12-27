@@ -6,7 +6,7 @@ module.exports = {
 		env: 'Development',
 		db: 'mongodb://localhost/test',
 		port: process.env.PORT || 3010,
-
+        clientPath: './src/client/web/'
 	},
 	
 	// Global settings for 
