@@ -1,6 +1,7 @@
 'use strict';
-
-var Cheque = require('./cheque.model');
+var mongoose = require('mongoose');
+var Cheque = mongoose.model('Cheque');
+// var Cheque = require('./cheque.model');
 
 var chequeController = function () {
 	

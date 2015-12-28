@@ -12,6 +12,6 @@ var ChequeSchema = new Schema({
 		modifiedOn: {type:Date, default: Date.now}
 });
 
-module.exports = mongoose.model('Cheque', ChequeSchema);
+mongoose.model('Cheque', ChequeSchema);
 
 
