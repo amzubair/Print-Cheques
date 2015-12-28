@@ -9,7 +9,6 @@ var port = process.env.PORT || config.defaultPort;
 
 
 gulp.task('serve:dev', function () {
-
     var isDev = true;
     var nodeOptions = {
         script: config.nodeServer,
