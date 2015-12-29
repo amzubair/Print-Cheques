@@ -8,7 +8,7 @@ var browserSync = require('browser-sync').create();
 var port = process.env.PORT || config.defaultPort;
 
 
-gulp.task('serve:dev', function () {
+gulp.task('serve:dev', ['load-models', 'sass'], function () {
     var isDev = true;
     var nodeOptions = {
         script: config.nodeServer,
@@ -63,8 +63,8 @@ function startBrowserSync() {
         },
         injectChanges: true,
         logFileChanges: true,
-        logLevel: 'debug',
-        logPrefix: 'gulp-patterns',
+        // logLevel: 'debug',
+        logPrefix: 'Browser-Sync',
         notify: true,
         reloadDelay: 1000
 

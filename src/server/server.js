@@ -1,6 +1,5 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var morgan = require('morgan');
 var moment = require('moment');
 var app = express();
 
@@ -8,42 +7,19 @@ var app = express();
 // Port Settings
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'Development';
 
+// Application Configuration
 var config = require('./config/config')[env];
 
 // Initialize Models
 require('./api/models');
 
-// Logging request details
-app.use(morgan('dev'));
-
-// Express Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-// Express Application Setup
-console.log('environment: ' + process.env.NODE_ENV);
-switch (process.env.NODE_ENV) {
-    case 'production':
-        console.log('** PRODUCTION **');
-        app.use(express.static('./build/'));
-
-        break;
-
-    default:
-        console.log('** DEVELOPMENT **');
-        console.log(config.clientPath);
-        app.use('/', express.static(config.clientPath));
-        app.use('/bower_components', express.static('./bower_components'));
-        app.use('/.temp', express.static('/.temp'));
-
-
-
-        break;
-}
-
 // Database Configurations
 require('./config/database')(config);
 
+// Express Application Configuration
+require('./config/express')(app, config);
+
+// Routes
 require('./api/routes')(app, config);
 
 app.listen(config.port, function () {
