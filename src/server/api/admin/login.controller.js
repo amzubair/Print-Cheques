@@ -32,7 +32,6 @@ var loginController = function (config) {
         }
 
         User.findOne({ username: req.body.username }).select('password username firstName lastName').exec(function (err, user) {
-            console.log(user);
             if (err) {
                 res.status(201).send({ success: false, message: err });
                 return;
@@ -50,12 +49,10 @@ var loginController = function (config) {
 
 
     function me(req, res) {
-        console.log(getTokenFromHeader(req.headers.authorization));
         jwt.verify(getTokenFromHeader(req.headers.authorization), config.secretKey, function (err, decoded) {
             if (err) {
                 res.status(403).send({ success: false, message: "Failed to authenticate user" });
             } else {
-                console.log()
                 res.status(403).send({ success: true, message: "Decoded User Data", "payload": decoded });
 
             }
@@ -64,7 +61,6 @@ var loginController = function (config) {
 
     function getTokenFromHeader(authHeader) {
         if (authHeader) {
-            console.log(authHeader.split(' ')[1]);
             return authHeader.split(' ')[1];
         } 
     }

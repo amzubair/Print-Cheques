@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 
 <head>
     <title>ADTC - Print Cheques</title>
+    <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
     <link rel="stylesheet" href="/.temp/styles.css">
+    <link rel="shortcut icon" type="image/png" href="/leaf.png" />
+    <base href="/" />
+
+    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-jwt/dist/angular-jwt.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/common/core.module.js"></script>
+    <script type="text/javascript" src="/app/authenticate/authenticate.module.js"></script>
+    <script type="text/javascript" src="/app/authenticate/authenticate.service.js"></script>
+    <script type="text/javascript" src="/app/authenticate/authenticate.controller.js"></script>
 </head>
 
 <body>
+    <div class="container">
+        <h1>Cheque Management System</h1>
+        <h3>Abu Dhabi Trade Center</h3>
+        <ui-view></ui-view>
+    </div>
 
-    <h1>My First Heading</h1>
-    <p>My test test.</p>
-    
-    <h1>framework is working</h1>
 
 </body>
 

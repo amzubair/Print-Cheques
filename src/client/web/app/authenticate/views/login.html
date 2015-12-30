@@ -1,0 +1,20 @@
+<section>
+<form autocomplete="off" ng-submit="authenticate.login(authenticate.username, authenticate.password)">
+    <div ng-show="authenticate.message">
+        <pre>{{ authenticate.message }}</pre>
+    </div>
+
+    <div >
+        <input id="username" type="text" ng-model="authenticate.username" placeholder="User Name" />
+    </div>
+
+    <div >
+        <input id="password" type="password" ng-model="authenticate.password" placeholder="Password" />
+    </div>
+
+    <div >
+        <input type="submit"  value="Login" />
+        <input type="button" ng-click="authenticate.signout()"  value="logout" />
+    </div>
+</form>
+</section>

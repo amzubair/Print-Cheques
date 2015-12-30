@@ -3,7 +3,7 @@ var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var config = require('../gulp-config');
 var browserSync = require('browser-sync').create();
-
+var spa = require('browser-sync-spa');
 
 var port = process.env.PORT || config.defaultPort;
 
@@ -41,6 +41,10 @@ function startBrowserSync() {
     if (browserSync.active) {
         return;
     }
+    
+    browserSync.use(spa({
+        selector: '[app]'
+    }));
 
     gulp.watch("./src/client/web/assets/scss/**/*.scss", ['sass']);
     gulp.watch("./src/client/web/**/*.html").on('change', browserSync.reload);

@@ -15,15 +15,21 @@ var signupController = function () {
     function createUser(req, res) {
         var user = new User(req.body);
 
-        user.save(function (err, user) {
-            if (err) {
-                res.status(500).send({ success: false, 'message': 'Error: ' + err });
-                return;
-            }
-            
-            res.status(201).send({ sucess: true, 'message': 'User Created', doc: user.hideUserPassword() });
-        });
+        User.findOne({ 'username': user.username }, function (err, result) {
+            if (!result) {
+                user.save(function (err, user) {
+                    if (err) {
+                        res.status(500).send({ success: false, 'message': 'Error: ' + err });
+                        return;
+                    }
 
+                    res.status(201).send({ sucess: true, 'message': 'User Created', doc: user.hideUserPassword() });
+                });
+            } else {
+                
+                        res.status(500).send({ success: false, 'message': 'User already exists' });
+            }
+        });
     }
 
     function getUsers(req, res) {

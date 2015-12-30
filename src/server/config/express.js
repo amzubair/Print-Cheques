@@ -15,6 +15,7 @@ module.exports = function (app, config) {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use(cors());
+
     
     // Express Application Setup
     console.log('environment: ' + process.env.NODE_ENV);
@@ -30,7 +31,6 @@ module.exports = function (app, config) {
             console.log(config.clientPath);
             app.use('/', express.static(config.clientPath));
             app.use('/bower_components', express.static('./bower_components'));
-            //app.use('/.temp', express.static('/.temp'));
             break;
     }
     
