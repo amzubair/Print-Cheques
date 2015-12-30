@@ -1,4 +1,4 @@
 // inject:models
-require("./admin/admin.model.js");
+require("./admin/user.model.js");
 require("./cheque/cheque.model.js");
 // endinject

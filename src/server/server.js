@@ -22,6 +22,9 @@ require('./config/express')(app, config);
 // Routes
 require('./api/routes')(app, config);
 
+// Error Routes
+require('./config/error')(app, config);
+
 app.listen(config.port, function () {
     process.startTime = moment().format('HH:MM:SS');
     process.startDate = moment().format('DD/MM/YYYY');

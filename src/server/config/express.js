@@ -2,6 +2,8 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var expressJwt = require('express-jwt');
+
 var cors = require('cors');
 
 module.exports = function (app, config) {
@@ -31,6 +33,10 @@ module.exports = function (app, config) {
             //app.use('/.temp', express.static('/.temp'));
             break;
     }
+    
+    // JWT Authentication on the route /api
+    app.use('/api', expressJwt({ secret: config.secretKey }).unless({ path: ['/api/login', '/api/signup'] }));
+
 
 
 }

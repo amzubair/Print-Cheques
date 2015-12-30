@@ -25,7 +25,7 @@ gulp.task('serve:dev', ['load-models', 'sass'], function () {
             console.log('*** NODEMON STARTED ***')
             console.log('files changed on restart: \n' + ev);
             setTimeout(function () {
-                browserSync.notify('Zubair');
+                browserSync.notify('Reloading...');
                 browserSync.reload({ stream: false });
             }, 1000);
         })
@@ -66,7 +66,8 @@ function startBrowserSync() {
         // logLevel: 'debug',
         logPrefix: 'Browser-Sync',
         notify: true,
-        reloadDelay: 1000
+        reloadDelay: 1000,
+        open: false
 
     };
 
